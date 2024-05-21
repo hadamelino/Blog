@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+
+<% if(locals.posts) { %>
+    <% if (posts.length > 0) { %>
+        <div class="d-flex flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+            <div class="list-group col-md-10">
+                <% for(var i = 0; i < posts.length; i++) { %>
+                    <a href="/read/<%= i %>" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                        <div class="d-flex gap-2 w-100 justify-content-between">
+                            <div>
+                                <h6 class="mb-0"><%= posts[i]["title"] %></h6>
+                                <p class="mb-0 opacity-75"><%= posts[i]["content"] %></p>
+                            </div>
+                                <small class="opacity-50 text-nowrap"><%= posts[i]["date"] %></small>
+                        </div>
+                        
+                        <!-- <a href="/create/<%= i %>"> <button> Edit </button> </a>
+                        <form action="/delete/<%= i %>" method="POST">
+                            <button type="submit">Delete</button>
+                        </form> -->
+
+                    </a>
+                <% } %>
+            </div>    
+        </div>
+    <% } else { %>
+        <div class="empty-posts-placeholder mt-md-5">
+            <h4>You don't have any Blog use the "Create Post" button to create one</h4>
+        </div>
+    <% } %>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

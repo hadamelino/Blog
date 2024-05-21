@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container mx-5 my-5">
+    <div class="mb-3 d-flex gap-2">
+        <a href="/edit/<%= idx %>">
+            <button class="btn btn-primary d-inline-flex align-items-center" type="button">
+                Edit
+            </button>
+        </a>
+
+        <form action="/delete/<%= idx %>", method="POST">
+            <button class="btn btn-danger d-inline-flex align-items-center justify-content-center" type="submit">
+                Delete
+            </button>
+        </form>
+    </div>
+
+    <div class="row">
+        <h4><%= title %></h1>
+    </div>
+    <div class="row">
+        <p><%= content %></p> 
+    </div>
+</div>
+    
+
+<%- include("partials/footer.ejs") %>
